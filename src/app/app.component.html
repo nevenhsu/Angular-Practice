@@ -1,43 +1,46 @@
-<h1>Angular</h1>
-<app-courses></app-courses>
-<app-favorite [is-favorite] = "post.isFavorite" (click)="onFavoriteChanged($event)"></app-favorite>
-<app-panel>
-    <ng-container class="head">Head</ng-container>
-    <div class="body">Body</div>
-</app-panel>
+
+<app-signup-form></app-signup-form>
+
+<!--<h1>Angular</h1>-->
+<!--<app-courses></app-courses>-->
+<!--<app-favorite [is-favorite] = "post.isFavorite" (click)="onFavoriteChanged($event)"></app-favorite>-->
+<!--<app-panel>-->
+    <!--<ng-container class="head">Head</ng-container>-->
+    <!--<div class="body">Body</div>-->
+<!--</app-panel>-->
 
 
-<div *ngIf="courses.length > 0; then coursesList else noCourse"></div>
-<ng-template #coursesList>
-    List of courses
-</ng-template>
-<ng-template #noCourse>
-    No courses
-</ng-template>
+<!--<div *ngIf="courses.length > 0; then coursesList else noCourse"></div>-->
+<!--<ng-template #coursesList>-->
+    <!--List of courses-->
+<!--</ng-template>-->
+<!--<ng-template #noCourse>-->
+    <!--No courses-->
+<!--</ng-template>-->
 
 
-<ul class="nav nav-items">
-    <li [class.active]="viewMode == 'map'"><a (click) = "viewMode = 'map'">map view</a> </li>
-    <li [class.active]="viewMode == 'list'"><a (click) = "viewMode = 'list'">list view</a> </li>
-</ul>
-<div [ngSwitch]="viewMode">
-    <div *ngSwitchCase="'map'">map view content</div>
-    <div *ngSwitchCase="'list'">list view content</div>
-    <div *ngSwitchDefault>something else</div>
-</div>
+<!--<ul class="nav nav-items">-->
+    <!--<li [class.active]="viewMode == 'map'"><a (click) = "viewMode = 'map'">map view</a> </li>-->
+    <!--<li [class.active]="viewMode == 'list'"><a (click) = "viewMode = 'list'">list view</a> </li>-->
+<!--</ul>-->
+<!--<div [ngSwitch]="viewMode">-->
+    <!--<div *ngSwitchCase="'map'">map view content</div>-->
+    <!--<div *ngSwitchCase="'list'">list view content</div>-->
+    <!--<div *ngSwitchDefault>something else</div>-->
+<!--</div>-->
 
-<button (click)="onAdd()">Add</button>
+<!--<button (click)="onAdd()">Add</button>-->
 
-<ul>
-    <li *ngFor="let course of courses; even as isEven; trackBy: trackCourse">
-        {{course.name}}
-        <span *ngIf="isEven">(Even)</span>
-        <button (click)="onRemove(course)">remove</button>
-    </li>
-</ul>
-
-
-<input type="text" [appInputFormat]="'lowerCase'" />
+<!--<ul>-->
+    <!--<li *ngFor="let course of courses; even as isEven; trackBy: trackCourse">-->
+        <!--{{course.name}}-->
+        <!--<span *ngIf="isEven">(Even)</span>-->
+        <!--<button (click)="onRemove(course)">remove</button>-->
+    <!--</li>-->
+<!--</ul>-->
 
 
-<app-contact-form></app-contact-form>
+<!--<input type="text" [appInputFormat]="'lowerCase'" />-->
+
+
+<!--<app-contact-form></app-contact-form>-->
