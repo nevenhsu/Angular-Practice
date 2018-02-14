@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable } from 'rxjs/observable';
 import { ErrorObservable } from 'rxjs/observable/ErrorObservable';
-import { catchError } from 'rxjs/operators';
+import { catchError, retry } from 'rxjs/operators';
 import 'rxjs/operator/catch';
 
 
@@ -15,16 +15,23 @@ export class DataService {
   getAll<T>(): Observable<T> {
     return this.httpClient.get<T>(this.url)
         .pipe(
+            retry(3),
             catchError(this.handleError('getAll'))
         );
   }
 
   create(resource) {
-    return this.httpClient.post(this.url, JSON.stringify(resource));
+    return this.httpClient.post(this.url, resource)
+        .pipe(
+            catchError(this.handleError('create'))
+        );
   }
 
   update(resource, body: object) {
-    return this.httpClient.patch(`${this.url}/${resource.id}`, JSON.stringify(body));
+    return this.httpClient.patch(`${this.url}/${resource.id}`, body)
+        .pipe(
+            catchError(this.handleError('update'))
+        );
   }
 
   delete(id) {

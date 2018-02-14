@@ -1,0 +1,13 @@
+<nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+    <div class="container">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item" routerLinkActive="active current">
+                <a class="nav-link" routerLink="/followers" [queryParams]="{ page: 1, order: 'popular'}">Followers</a>
+            </li>
+            <li class="nav-item" routerLinkActive="active current">
+                <a class="nav-link" routerLink="/posts">Posts</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
